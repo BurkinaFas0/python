@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+apt install python3.12-venv
+
+#создаем виртуальное окружение в текущей папке
+python3 -m venv .
+
+#устанавливаем модуль postgres для python
+./bin/pip install psycopg2-binary
