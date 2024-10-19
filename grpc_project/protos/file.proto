@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+
+message Todo {
+  uint64 id = 1;
+  string name = 2;
+  bool completed = 3;
+  uint64 day = 4;
+}
+
+message createTodoRequest {
+  Todo todo = 1;
+}
+
+message GetallTodosRequest {
+  string message = 1;
+}
+
+message todoResponse {
+  repeated Todo todo = 1;
+}
+
+
+service todoService {
+  rpc SayHello(HelloRequest) returns (HelloReply) {}
+  rpc createTodo(createTodoRequest) returns (todoResponse) {}
+  rpc getAllTodos(GetallTodosRequest) returns (todoResponse) {}
+}
